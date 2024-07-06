@@ -1,0 +1,139 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+
+#wrapper{
+    height:100vh;
+    /* badckground image ko right m scroll ni krna h uske liye */
+    overflow-x:hidden;
+    /* niche ki direction m scroll krna h isliye */
+    overflow-y:auto;
+
+    /* is website ko banane ke liye 3D ka game khlnge  */
+    /* 3D ke liye Z-axis ko introduce krna prta h, 
+    /* perspective introduce krna prega  */ 
+    perspective: 10px;
+
+}
+/* absolution position denge  */
+
+/* container flex banane ke liye use kiye h humlog */
+.container{
+    position:relative;
+    /* flex ki default position row hoti h isliye row m aayi dono img */
+    display: flex;
+    /* element ko jb center m place krna h toh */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* agar tranform ni denge to 2D act krega aur perform ni hoga thats why 3D m krne ke liye use kre h */
+    transform-style: preserve-3d;
+    /*  overlapping ke liye z-index use krte h */
+    z-index: -1;
+}
+
+.background{
+    /* background img ko dur krni h Z axis m  */
+    /* img choti ni hui h img dur chli gyi h humse */
+
+    /* uss img ko bara krna h pss ni lana h toh wo scale ke help se krnge */
+    transform:translateZ(-40px) scale(5);
+}
+
+/* parallax effect generate kr diye h */
+.foreground{
+    transform: translateZ(-20px) scale(3);
+}
+
+.background , .foreground{
+    /* dono images ko overlapping krwana h absolute ka use krte h */
+    position : absolute;
+    height: 100%;
+    width: 100%;
+    /* phle adventure andhr ke trf tha jaise hi z-index diye wo img ke uper agya  */
+    z-index: -1;
+    /* img pura width cover kr legi  */
+    /* img / video should be resized to fit its container*/
+    object-fit: cover;
+
+
+}
+
+h1{
+    position: absolute;
+    top:3rem;
+    font-size: 10rem;
+    /* letter ke bich ka space  */
+    letter-spacing: 4px;
+    color:white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+section{
+    /* ye sb krne se jitna v section ke andhr items the sare white color hogye */
+    /* background color back hogya  */
+    /* padding add hogyi*/
+    background-color: rgb(45,45,45);
+    color:white;
+    padding: 5rem 0;
+}
+.secheading{
+    font-size:5rem;
+    padding:0 10rem;
+}
+
+.text{
+    font-size: 1.5rem;
+    padding: 0 10rem;
+    margin: 5rem 0;
+
+}
+
+.bg{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    /* niche wale dono line ka mtlb h ki  bg img pura cover ho jaye and also center m hojaye  */
+    background-size:cover;
+    background-position: center;
+    /* means background m jo img h jo fixed rhegi  */
+    /* ye ni lagaynge to text ke sath sath img ki move kregi */
+    background-attachment: fixed;;
+}
+
+.desc{
+    /* ye sb code ratna ni h sb smjhna h   */
+    position: absolute; 
+    background-color: white;
+    margin: 0.5rem 2,5rem;
+    top: 50%;
+    left: 50%;
+    transform:translateX(-50%) translateX(-50%);
+    color:black;
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+/* bg1 ke class h isme background image add kiye h hum log */
+/* biking ki img */
+.bg1{
+    background-image: url(sport-1.jpg);
+}
+
+/* para gliding ki img */
+.bg2{
+    background-image: url(sport-2.jpg);
+}
+
+/* surfing img */
+.bg3{
+    background-image: url(sport-3.jpg);
+}
+
+/* homework - difference b/w img and background image  */
+/* why we use background img not <img> tag */
